@@ -20,7 +20,8 @@ defmodule Sipintar.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Sipintar do
-  #   pipe_through :api
-  # end
+  scope "/api", Sipintar do
+    pipe_through :api
+    post "/telegram/webhook", TelegramBotController, :webhook
+  end
 end
